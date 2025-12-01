@@ -1,0 +1,7 @@
+{
+  "name": "2025 點石書屋・雙語冬令營",
+  "description": "Registration portal for the 2025 Bilingual Winter Camp featuring Stop Motion Animation, European Culture, and Ancient Civilizations.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
