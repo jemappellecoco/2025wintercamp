@@ -17,7 +17,7 @@ export const CAMP_SESSIONS: CampSession[] = [
     schedule: [
       { time: '09:30-10:00', mon: '規則講解', tue: '團體遊戲', wed: '團體遊戲', thu: '團體遊戲', fri: '戶外教學\n(包車前往)' },
       { time: '10:00-10:50', mon: 'Joanne 老師\n說故事時間', tue: 'Joanne 老師\n說故事時間', wed: 'Joanne 老師\n說故事時間', thu: 'Joanne 老師\n說故事時間', fri: '六福村主題樂園' },
-      { time: '11:00-11:50', mon: '基礎文法', tue: '寫作課', wed: '基礎文法', thu: '寫作課', fri: '六福村主題樂園' },
+      { time: '11:00-11:50', mon: '寫作業', tue: '寫作課', wed: '基礎文法', thu: '寫作課', fri: '六福村主題樂園' },
       { time: '12:00-13:00', mon: '午休時間', tue: '午休時間', wed: '午休時間', thu: '午休時間', fri: '一日遊' },
       { time: '13:00-14:30', mon: '認識動畫片：\n動畫原理', tue: '動畫劇本寫作', wed: '動畫人物與\n背景素材製作', thu: 'Filming Time\n錄製停格動畫', fri: '尋找靈感' },
       { time: '14:30-15:30', mon: '認識動畫片：\n動畫原理', tue: '動畫劇本寫作', wed: '動畫背景\n素材製作', thu: 'Filming Time\n錄製停格動畫', fri: '攝影挑戰' },
@@ -76,5 +76,5 @@ export const GENERAL_INFO = {
   time: '每日 09:30 - 16:00 (09:00 開始 Drop-off, 16:00-16:30 Pick-up)',
   location: '點石書屋',
   address: '請洽詢點石書屋', 
-  discounts: '第一梯次 $9,000 | 第二、三梯次 $8,000',
+  discounts: '第一梯次 $9,00 | 第二、三梯次 $8,000',
 };

@@ -7,18 +7,19 @@ interface ScheduleTableProps {
 }
 
 const ScheduleTable: React.FC<ScheduleTableProps> = ({ schedule, colorTheme }) => {
-  // Map color theme to actual tailwind classes safely
-  const headerBg = {
-    orange: 'bg-orange-100 text-orange-900',
-    sky: 'bg-sky-100 text-sky-900',
-    emerald: 'bg-emerald-100 text-emerald-900',
-  }[colorTheme] || 'bg-gray-100 text-gray-900';
+  const headerBg =
+    {
+      orange: 'bg-orange-100 text-orange-900',
+      sky: 'bg-sky-100 text-sky-900',
+      emerald: 'bg-emerald-100 text-emerald-900',
+    }[colorTheme] || 'bg-gray-100 text-gray-900';
 
-  const borderColor = {
-    orange: 'border-orange-200',
-    sky: 'border-sky-200',
-    emerald: 'border-emerald-200',
-  }[colorTheme] || 'border-gray-200';
+  const borderColor =
+    {
+      orange: 'border-orange-200',
+      sky: 'border-sky-200',
+      emerald: 'border-emerald-200',
+    }[colorTheme] || 'border-gray-200';
 
   return (
     <div className={`overflow-x-auto rounded-lg border ${borderColor} shadow-sm`}>
@@ -33,19 +34,44 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({ schedule, colorTheme }) =
             <th className="px-4 py-3">週五</th>
           </tr>
         </thead>
+
         <tbody className="divide-y divide-gray-100 bg-white">
           {schedule.map((row, index) => (
-            <tr key={index} className="hover:bg-gray-50 transition-colors">
-              <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap bg-gray-50/50">
+            <tr key={index}>
+              <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap bg-gray-50/50 hover:bg-gray-100 transition-colors">
                 {row.time}
               </td>
-              <td className="px-4 py-3 text-gray-700 whitespace-pre-line">{row.mon}</td>
-              <td className="px-4 py-3 text-gray-700 whitespace-pre-line">{row.tue}</td>
-              <td className="px-4 py-3 text-gray-700 whitespace-pre-line">{row.wed}</td>
-              <td className="px-4 py-3 text-gray-700 whitespace-pre-line">{row.thu}</td>
-              <td className="px-4 py-3 text-gray-700 font-medium text-indigo-600 whitespace-pre-line">
-                {row.fri}
+
+              {/* Mon–Thu */}
+              <td className="px-4 py-3 text-gray-700 whitespace-pre-line hover:bg-gray-50 transition-colors">
+                {row.mon}
               </td>
+              <td className="px-4 py-3 text-gray-700 whitespace-pre-line hover:bg-gray-50 transition-colors">
+                {row.tue}
+              </td>
+              <td className="px-4 py-3 text-gray-700 whitespace-pre-line hover:bg-gray-50 transition-colors">
+                {row.wed}
+              </td>
+              <td className="px-4 py-3 text-gray-700 whitespace-pre-line hover:bg-gray-50 transition-colors">
+                {row.thu}
+              </td>
+
+              {/* Friday column：整欄 merged + 自己 hover */}
+              {index === 0 ? (
+                <td
+                  rowSpan={schedule.length}
+                  className="
+                    px-4 py-3 whitespace-pre-line
+                    font-medium text-indigo-600 text-center
+                    align-middle bg-white
+                    border-l border-gray-200
+                    hover:bg-indigo-50
+                    transition-colors
+                  "
+                >
+                  {schedule[0].fri}
+                </td>
+              ) : null}
             </tr>
           ))}
         </tbody>
