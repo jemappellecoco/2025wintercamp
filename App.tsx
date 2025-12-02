@@ -34,12 +34,12 @@ function App() {
             在沉浸式雙語環境中，開啟跨領域的學習之旅。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-  href="register.html"
-  className="px-8 py-4 bg-white text-indigo-900 font-bold rounded-full shadow-xl hover:bg-gray-100 transition-all transform hover:-translate-y-1"
->
-  立即報名
-</a>
+            <button 
+               onClick={() => { window.location.href = '/2025wintercamp/register.html'; }}
+              className="px-8 py-4 bg-white text-indigo-900 font-bold rounded-full shadow-xl hover:bg-gray-100 transition-all transform hover:-translate-y-1"
+            >
+              立即報名
+            </button>
             <a 
               href="#sessions"
               className="px-8 py-4 bg-indigo-700/50 text-white font-bold rounded-full border border-indigo-400/30 hover:bg-indigo-700 transition-all backdrop-blur-sm"

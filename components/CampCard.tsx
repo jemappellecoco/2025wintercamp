@@ -69,12 +69,12 @@ const CampCard: React.FC<CampCardProps> = ({ session, onRegister }) => {
                 {showSchedule ? <ChevronUp className="ml-2 w-4 h-4" /> : <ChevronDown className="ml-2 w-4 h-4" />}
               </button>
               
-              <a
-  href="register.html"
-  className="px-8 py-4 bg-white text-indigo-900 font-bold rounded-full shadow-xl hover:bg-gray-100 transition-all transform hover:-translate-y-1"
->
-  立即報名
-</a>
+              <button 
+                 onClick={() => { window.location.href = '/2025wintercamp/register.html'; }}
+                className={`flex-1 sm:flex-none px-6 py-3 rounded-lg text-white font-bold shadow-md transform active:scale-95 transition-all ${themeClasses.btn}`}
+              >
+                立即報名
+              </button>
             </div>
           </div>
         </div>
