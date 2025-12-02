@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>冬令營報名表 Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CDN（和 wintercamp 一樣做法） -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold mb-2">
+      冬令營報名表 Winter Camp Registration
+    </h1>
+    <p class="text-sm text-slate-300 mb-6">
+      請完整填寫以下資料，送出後將寄送報名確認信至您的 Email。
+    </p>
+
+    <!-- 成功訊息 -->
+    <div id="successMsg"
+         class="hidden mb-4 rounded-lg bg-emerald-600/20 border border-emerald-500 px-4 py-3 text-sm text-emerald-100">
+      ✅ 報名已送出，我們已收到您的資料，確認信將寄送至您填寫的 Email。
+    </div>
+
+    <!-- 錯誤訊息 -->
+    <div id="errorMsg"
+         class="hidden mb-4 rounded-lg bg-rose-600/20 border border-rose-500 px-4 py-3 text-sm text-rose-100">
+      ⚠ 送出時發生問題，請稍後再試，或聯繫主辦單位。
+    </div>
+
+    <!-- 報名表單 -->
+    <form id="regForm"
+          action="YOUR_SCRIPT_URL_HERE"
+          method="POST"
+          class="space-y-6 bg-slate-900/70 border border-slate-700 rounded-2xl p-6 shadow-xl">
+
+      <!-- 一、基本資料 -->
+      <section>
+        <h2 class="text-xl font-semibold mb-3">一、報名者基本資料</h2>
+        <p class="text-xs text-slate-400 mb-3">
+          ※ 為確保活動期間權益與保險辦理，請務必詳實填寫。
+        </p>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          <div>
+            <label class="block text-sm mb-1">學員姓名（必填）</label>
+            <input type="text" name="studentName" required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">身分證字號（必填，用於保險）</label>
+            <input type="text" name="idNumber" required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">出生年月日（必填）</label>
+            <input type="text" name="birthday" placeholder="例如：2012/03/15"
+                   required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">性別（必填）</label>
+            <select name="gender" required
+                    class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm">
+              <option value="">請選擇</option>
+              <option value="男">男</option>
+              <option value="女">女</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">學校／年級（必填）</label>
+            <input type="text" name="schoolGrade" required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">聯絡電話（手機，必填）</label>
+            <input type="tel" name="phone" required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-sm mb-1">電子郵件 Email（必填）</label>
+            <input type="email" name="email" required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm"
+                   placeholder="報到通知與行前資訊將寄至此信箱" />
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-sm mb-1">報名梯次／活動項目（必填）</label>
+            <input type="text" name="session"
+                   placeholder="例如：2025 冬令營 第一期"
+                   required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 二、緊急聯絡＆特殊需求 -->
+      <section>
+        <h2 class="text-xl font-semibold mb-3">二、 緊急聯絡與特殊需求</h2>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          <div>
+            <label class="block text-sm mb-1">緊急聯絡人姓名（必填）</label>
+            <input type="text" name="emergencyName" required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">與學員關係（必填）</label>
+            <input type="text" name="emergencyRelation" placeholder="父親／母親／監護人…"
+                   required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">緊急聯絡人電話（必填）</label>
+            <input type="tel" name="emergencyPhone" required
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm mb-1">特殊飲食需求</label>
+            <input type="text" name="diet"
+                   placeholder="無／素食／某些食物過敏等"
+                   class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm" />
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-sm mb-1">特殊健康狀況／病史</label>
+            <textarea name="health"
+                      rows="3"
+                      placeholder="如：氣喘、癲癇、食物或藥物過敏、舊傷…"
+                      class="w-full rounded-lg bg-slate-800 border border-slate-600 px-3 py-2 text-sm"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- 三、條款與同意 -->
+      <section>
+        <h2 class="text-xl font-semibold mb-3">三、 同意條款</h2>
+
+        <div class="space-y-2 text-xs leading-relaxed text-slate-300 max-h-52 overflow-y-auto border border-slate-700 rounded-lg p-3 bg-slate-900/80">
+          <p>1. 本報名資料僅供營隊聯繫、分組、辦理團體保險及相關行政作業使用。</p>
+          <p>2. 本營隊將為學員投保旅遊平安險或公共意外責任險，若因資料填寫不實或錯誤致影響理賠，概由報名者與監護人自行負責。</p>
+          <p>3. 監護人已如實告知學員之健康狀況與不適合進行劇烈活動之疾病。</p>
+          <p>4. 活動期間主辦單位得於課程與活動中拍攝照片或錄影，作為非營利用之紀錄與宣傳使用。</p>
+          <p>5. 報名學員應遵守活動規範及工作人員指示，如嚴重妨礙課程進行或影響他人權益，主辦單位得取消其參加資格，費用恕不退還。</p>
+          <p>6. 退費標準：開課前 10 天（含）全額退費；開課前 9–3 天退還 80%；開課前 2 天退還 70%；開課當日或未出席恕不退費。若遇天災或不可抗力因素，主辦單位將另行公告延期或全額退費辦法。</p>
+        </div>
+
+        <label class="mt-3 flex items-start gap-2 text-sm">
+          <input id="agreeTerms" type="checkbox" class="mt-1" required />
+          <span>
+            我已詳細閱讀並同意以上
+            <span class="font-semibold">報名須知、個資與保險條款、肖像權使用及退費規定</span>。
+          </span>
+        </label>
+        <p class="text-xs text-slate-400 mt-1">
+          ※ 未勾選同意，將無法送出報名表。
+        </p>
+      </section>
+
+      <!-- 送出按鈕 -->
+      <div class="pt-2 border-t border-slate-700 flex items-center gap-3">
+        <button
+          id="submitBtn"
+          type="submit"
+          class="px-6 py-2.5 rounded-xl bg-pink-500 text-sm font-semibold text-white shadow-lg hover:bg-pink-600 disabled:opacity-40 disabled:cursor-not-allowed">
+          送出報名
+        </button>
+        <span id="loadingText" class="hidden text-xs text-slate-400">
+          送出中，請稍候…
+        </span>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('regForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const loadingText = document.getElementById('loadingText');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+    const agree = document.getElementById('agreeTerms');
+
+    // 保險一層：沒勾不能送
+    form.addEventListener('submit', function (e) {
+      if (!agree.checked) {
+        e.preventDefault();
+        alert('請先勾選「我已閱讀並同意相關條款」再送出報名。');
+        return;
+      }
+
+      // 顯示送出中 UI
+      submitBtn.disabled = true;
+      loadingText.classList.remove('hidden');
+
+      // 這裡使用原生 form POST 到 Apps Script
+      // Apps Script 收到後會寄信＋寫入試算表
+      // （如果你有設定 redirect，可以導回感謝頁）
+    });
+
+    // 如果你之後有做「感謝頁 redirect」，
+    // 可以不用用 JS 顯示 success，而是讓 Script redirect 到 /thankyou.html
+  </script>
+</body>
+</html>
